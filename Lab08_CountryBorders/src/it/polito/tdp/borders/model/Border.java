@@ -4,16 +4,23 @@ public class Border {
 	
 	private Country c1 ;
 	private Country c2 ;
-	private int tipo ;
 	
 	public Border(Country c1, Country c2) {
 		this.c1 = c1;
 		this.c2 = c2;
 	}
+	
+	public Country getC1(){
+		return this.c1;
+	}
+	
+	public Country getC2(){
+		return this.c2;
+	}
 
 	@Override
 	public String toString() {
-		return String.format("Confine %s e %s", c1,c2);
+		return String.format("Confine %s e %s ", c1 ,c2);
 	}
 
 	@Override

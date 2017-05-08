@@ -11,7 +11,7 @@ public class Country {
 
 	@Override
 	public String toString() {
-		return String.format("%s (%s)", nazione,id);
+		return String.format("%s (%s) ", nazione,id);
 	}
 
 	@Override
@@ -38,7 +38,8 @@ public class Country {
 			return false;
 		return true;
 	}
-	
+
+
 	
 	
 }

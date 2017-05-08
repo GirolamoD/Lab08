@@ -31,7 +31,9 @@ public class BordersController {
 
 	@FXML
 	void doCalcolaConfini(ActionEvent event) {
-		
+		if(Integer.parseInt(txtAnno.getText()) >=1816 && Integer.parseInt(txtAnno.getText())<=2016)
+			txtResult.setText(model.createGraph(Integer.parseInt(txtAnno.getText())));
+		else txtResult.setText("L'anno inserito non è valido. Inserire anno compreso tra il 1816 e il 2016");
 	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
