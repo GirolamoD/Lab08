@@ -39,6 +39,10 @@ public class Country {
 		return true;
 	}
 
+	public String getId() {
+		return this.id;
+	}
+
 
 	
 	

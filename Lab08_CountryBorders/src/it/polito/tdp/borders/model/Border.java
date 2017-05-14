@@ -1,6 +1,8 @@
 package it.polito.tdp.borders.model;
 
-public class Border {
+import org.jgrapht.graph.DefaultEdge;
+
+public class Border extends DefaultEdge {
 	
 	private Country c1 ;
 	private Country c2 ;

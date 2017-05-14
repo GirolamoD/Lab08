@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import it.polito.tdp.borders.model.Border;
 import it.polito.tdp.borders.model.Country;
@@ -24,9 +25,9 @@ public class BordersDAO {
 			ResultSet rs = st.executeQuery();
 
 			while (rs.next()) {
-				String abb = rs.getString("StateAbb");
-				String id = rs.getString("StateNme");
-				countries.add(new Country(abb,id));
+				String name = rs.getString("StateNme");
+				String id = rs.getString("StateAbb");
+				countries.add(new Country(name,id));
 			}
 
 			conn.close();
@@ -39,7 +40,7 @@ public class BordersDAO {
 		}
 	}
 
-	public List<Border> getCountryPairs(int anno) {
+	public List<Border> getCountryPairs(int anno, Map<String, Country> countries) {
 		
 		List<Border> borders = new ArrayList<>();
 		
@@ -53,9 +54,9 @@ public class BordersDAO {
 			ResultSet rs = st.executeQuery();
 			
 			while (rs.next()) {
-				String abb1 = rs.getString("state1ab");
-				String abb2 = rs.getString("state2ab");
-				borders.add(new Border(new Country("",abb1),new Country("",abb2)));
+				Country c1 = countries.get(rs.getString("state1ab"));
+				Country c2 = countries.get(rs.getString("state2ab"));
+				borders.add(new Border(c1,c2));
 			}
 
 			connection.close();
